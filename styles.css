@@ -34,20 +34,16 @@
 	position: absolute;
 	width: 75px;
 	height: 75px;
-	/*background-color: rgba(229,76,16,0.2);*/
 	left:60%;
 	top:30%;
-    /*background-image: url('bits/sun.svg');*/
 }
 .container_moon {
 	position: absolute;
 	width: 75px;
 	height: 75px;
-	/*background-color: rgba(229,76,16,0.2);*/
 	left:60%;
 	top:30%;
 	transform: rotate(180deg);
-	/*background-image: url('/bits/moon.svg');*/
 }
 
 

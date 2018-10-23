@@ -6,33 +6,33 @@ $(document).ready(function () {
 	svg_items = [
 		{
 			viewbox: '0 0 50 50',
-			xlink: 'bits/conterspiral.svg#conterspiral',
+			xlink: '/bits/conterspiral.svg#conterspiral',
 			stroke: 'AliceBlue'
 		},
 		{
 			viewbox: '0 0 400 400',
-			xlink: 'bits/ninestar.svg#ninestar',
+			xlink: '/bits/ninestar.svg#ninestar',
 			stroke: 'AliceBlue'
 		},
 		{
 			viewbox: '0 0 500 500',
-			xlink: 'bits/octastar.svg#octastar',
+			xlink: '/bits/octastar.svg#octastar',
 			fill: 'AliceBlue'
 			
 		},
 		{
 			viewbox: '0 0 24 24',
-			xlink: 'bits/spiral.svg#spiral',
+			xlink: '/bits/spiral.svg#spiral',
 			stroke: 'AliceBlue'
 		},
 		{
 			viewbox: '0 0 340 340',
-			xlink: 'bits/star.svg#star',
+			xlink: '/bits/star.svg#star',
 			fill: 'AliceBlue'
 		},
 		{
 			viewbox: '0 0 639 600',
-			xlink: 'bits/triskele.svg#triskele',
+			xlink: '/bits/triskele.svg#triskele',
 			fill: 'AliceBlue'
 		}
 	];
@@ -95,7 +95,7 @@ $(document).ready(function () {
 			var randomPosHorizont = randomInteger(min, max),
 			randomPosVertical = randomInteger(min, max);
 			var octastar = Star(octaStarSize);
-				octastar.load("/bits/octastar.svg");
+				octastar.load("/bits/octastar.svg#octastar");
 				octastar.css({"left": randomPosHorizont + "%", "top": randomPosVertical +"%", "fill": "gold"});
 				octastar.prependTo($('.parallax'));
 	}
@@ -104,7 +104,7 @@ $(document).ready(function () {
 		randomPosHorizont = randomInteger(min/3, max),
 		randomPosVertical = randomInteger(min*2, max);
 		var circlestar = Star(circleStarSize);
-			circlestar.load("/bits/octastar.svg");
+			circlestar.load("/bits/octastar.svg#octastar");
 			circlestar.css({"left": randomPosHorizont + "%", "top": randomPosVertical +"%","fill": "#F5FFFA"});
 			circlestar.prependTo($('.parallax'));
 	}
@@ -124,7 +124,6 @@ $(document).ready(function () {
 			pax_left = $('.parallax' ).offset().left,
 			pax_width = $('body').width() - $('body').width() + $('.parallax').width(),
 			pax_height = $('.parallax' ).height();
-			console.log(pax_width);
 		var small_pos = $('.smallStars');
 			small_pos.each(function () {
 				this.init_position = $(this).position();
@@ -145,21 +144,17 @@ $(document).ready(function () {
 				});
 			$('.containers').each(function() {
 				$(this).css({
-					'top': this.init_position.top - (mouseY-pax_height/2)/16,
-					'left': this.init_position.left - (mouseX-pax_width/2)/16
+					'top': this.init_position.top - (mouseY-pax_height/2)/48,
+					'left': this.init_position.left - (mouseX-pax_width/2)/48
 				});
 			});
 			$('.container_sun, .container_moon').css({
 					'top': sun_init_pos.top - (mouseY-pax_height/2)/64,
 					'left': sun_init_pos.left + (mouseX-pax_width/2)/64
 				});
-			// $('.container_moon').css({
-			// 		'top': sun_init_pos.top - (mouseY-pax_height/2)/64,
-			// 		'left': sun_init_pos.left + (mouseX-pax_width/2)/64
-			// 	});		
+			
 		});
 	}
 	$('.parallax').hover(parallax());
 
 });
-$(document).resize(parallax());
