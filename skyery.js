@@ -1,5 +1,37 @@
-$(document).ready(function () {
-	console.log('ready');
+var dayOrNight = 'day';
+$(document).ready( function() {
+	skyery();
+	dayOrNight == 'day' ? $('.container_moon').hide() : $('.container_sun').hide();
+	$('.container_sun, .container_moon').css({'left': '75%', 'top': '20%'});
+});
+window.onresize = function() {
+	$('.smallStars').remove();
+	dayOrNight == 'day' ? $('.container_moon').hide() : $('.container_sun').hide();
+	$('.container_sun, .container_moon').css({'left': '75%', 'top': '20%'});
+	skyery();
+}
+$('.parallax').on('mouseleave', function() {
+		dayOrNight == 'day'? $('.container_sun').triggerHandler('click') : $('.container_moon').triggerHandler('click');
+	});
+	$('.container_sun').click(function() {
+		dayOrNight = "night";
+		$(this).fadeOut(800);
+		$('.container_moon').fadeIn(1800);
+		$('.parallax').css('animation', 'DayNight 1s ease-in forwards');
+		$('h1, h5').css('animation', 'h1h5colorsNight 1s ease-in forwards');
+		$('.sajtim_link, a').css('animation', 'acolorsNight 1s ease-in forwards');
+	});
+	$('.container_moon').click(function() {
+		dayOrNight = "day";
+		$(this).fadeOut(800);
+		$('.container_sun').fadeIn(800);
+		$('.parallax').css('animation', 'NightDay 1s ease-in backwards');
+		$('h1, h5').css('animation', 'h1h5colorsDay 1s ease-in forwards');
+		$('.sajtim_link, a').css('animation', 'acolorsDay 1s ease-in forwards');
+	});
+
+function skyery () {
+
 	var bit_size_classes =['bit1', 'bit2', 'bit3', 'bit4', 'bit5', 'bit6'];
 	var colors = ['#FF7400', '#33CCCC', '#A60000', '#BF3030', '#009999', '#FFB273', '#FFFACD'];
 	var bit_anim = ['bits', 'bits_contr', 'bits_static'],
@@ -36,6 +68,7 @@ $(document).ready(function () {
 			fill: 'AliceBlue'
 		}
 	];
+	
 
 	function randomInteger(min, max) {
     var rand = min + Math.random() * (max + 1 - min);
@@ -69,19 +102,8 @@ $(document).ready(function () {
   		}
   		
 	});
-	$('.container_moon').hide();
-	$('.container_sun').click(function() {
-		$(this).fadeOut(800);
-		$('.container_moon').fadeIn(1800);
-		$('.parallax').css('animation', 'DayNight 1s ease-in forwards');
-
-	});
-	$('.container_moon').click(function() {
-		$(this).fadeOut(800);
-		$('.container_sun').fadeIn(800);
-		$('.parallax').css('animation', 'NightDay 1s ease-in backwards');
-	});
-	 
+	
+	
 
 	function Star (size) {
 		var smallStar = $( "<div></div>", {
@@ -108,15 +130,15 @@ $(document).ready(function () {
 			circlestar.css({"left": randomPosHorizont + "%", "top": randomPosVertical +"%","fill": "#F5FFFA"});
 			circlestar.prependTo($('.parallax'));
 	}
-	for (var i=0; i<=12; i++) {
+	for (var i=0; i<=48; i++) {
 		addOctaStar (0, 95);
 		addCircle(0, 95);
 	}
-	for (var i=0; i<=12; i++) {
+	for (var i=0; i<=24; i++) {
 		addCircle(10, 80);
 	}
 	
-	for (var i=0; i<=24; i++) {
+	for (var i=0; i<=48; i++) {
 		addCircle(30, 90);
 	}
 	function parallax () {
@@ -132,7 +154,11 @@ $(document).ready(function () {
 			containers_pos.each(function () {
 				this.init_position = $(this).position();
 			});
-		var sun_init_pos = $('.container_sun').position();
+		var sun_init_pos = function() {
+			var sun_init;
+			dayOrNight =='day' ? sun_init = $('.container_sun').position() : sun_init = $('.container_moon').position();
+			return sun_init;
+		};
 		$('.parallax').mousemove(function (event) {
 			var mouseX = event.pageX-pax_left,
 			mouseY = event.pageY-pax_top;
@@ -156,5 +182,5 @@ $(document).ready(function () {
 		});
 	}
 	$('.parallax').hover(parallax());
+}
 
-});

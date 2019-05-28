@@ -1,12 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&subset=cyrillic');
+html, body, .parallax { 
+	height: 100%;
+	font-family: open-sans
+}
 .parallax {
-	/*animation: DayNight 1s ease-in forwards;*/
 	position: relative;
 	width: 100%;
-	height: 600px;
 	background-color: #F5FFFA;
 }
-@keyFrames DayNight {
+h1,h5 {
+	font-family: 'Open Sans', sans-serif;
+	color: #303a59;
 	
+}
+h1{
+	font-size: 2.5em;
+	line-height: 1rem;
+}
+h5{
+	line-height: 0;
+	font-style: italic;
+}
+@keyFrames DayNight {
 		from {
 			background-color: #F5FFFA;
 		}
@@ -15,13 +30,44 @@
 		}
 }
 @keyFrames NightDay {
-	
 		from {
 			background-color: #303a59;
 		}
 		to {
 			background-color: #F5FFFA;
 		}
+}
+@keyFrames h1h5colorsDay {
+	from {
+		color: #F5FFFA;
+	}
+	to {
+		color: #303a59;
+	}
+}
+@keyFrames h1h5colorsNight {
+	from {
+		color: #303a59;
+	}
+	to {
+		color: #F5FFFA;
+	}
+}
+@keyFrames acolorsDay {
+	from {
+		color: lightblue;
+	}
+	to {
+		color: blue;
+	}
+}
+@keyFrames acolorsNight {
+	from {
+		color: blue;
+	}
+	to {
+		color: lightblue;
+	}
 }
 .containers {
 	position: absolute;
@@ -34,15 +80,11 @@
 	position: absolute;
 	width: 75px;
 	height: 75px;
-	left:60%;
-	top:30%;
 }
 .container_moon {
 	position: absolute;
 	width: 75px;
 	height: 75px;
-	left:60%;
-	top:30%;
 	transform: rotate(180deg);
 }
 
@@ -127,6 +169,32 @@
 	left: 20%;
 	top: 20%;
 	margin: -10%;
+}
+.announce {
+	position: absolute;
+	top: 22%;
+	left: 11%;
+	height: 300px;
+	padding: 10px 20px;
+	border: 1px dotted gold;
+	border-radius: 5px;
+}
+.sajtim_link {
+	position: absolute;
+	font-weight: bold;
+	font-family: 'Open Sans', sans-serif;
+	left: 25%;
+	bottom: 30px;
+	text-align: center;
+	text-align: webkit-center;
+	margin: auto;
+	border: 2px solid blue;
+	border-radius: 10px;
+	padding: 10px 20px;
+	width: 40%;
+}
+.sajtim_link>a {
+	text-decoration: none;
 }
 
 
