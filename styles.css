@@ -1,3 +1,27 @@
+html, body, div, span, applet, object, iframe,p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+	position: relative;
+}
+html, body {
+	height: 100%;
+}
+
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&subset=cyrillic');
 html, body, .parallax { 
 	height: 100%;
@@ -14,12 +38,13 @@ h1,h5 {
 	
 }
 h1{
-	font-size: 2.5em;
+	font-size: 2rem;
 	line-height: 1rem;
 }
 h5{
-	line-height: 0;
 	font-style: italic;
+	margin: 10px 10px 10px 0;
+	font-size: 0.9rem;
 }
 @keyFrames DayNight {
 		from {
@@ -78,11 +103,13 @@ h5{
 
 .container_sun {
 	position: absolute;
+	left: 75%;
 	width: 75px;
 	height: 75px;
 }
 .container_moon {
 	position: absolute;
+	left: 75%;
 	width: 75px;
 	height: 75px;
 	transform: rotate(180deg);
@@ -171,30 +198,43 @@ h5{
 	margin: -10%;
 }
 .announce {
+	background-color: #ffffff27;
 	position: absolute;
-	top: 22%;
+	top: 25%;
 	left: 11%;
-	height: 300px;
 	padding: 10px 20px;
 	border: 1px dotted gold;
 	border-radius: 5px;
 }
 .sajtim_link {
-	position: absolute;
+	background-color: #303a5926;
 	font-weight: bold;
 	font-family: 'Open Sans', sans-serif;
-	left: 25%;
-	bottom: 30px;
+	margin: 30px 18%;
 	text-align: center;
-	text-align: webkit-center;
-	margin: auto;
+	webkit-text-align: center;
 	border: 2px solid blue;
 	border-radius: 10px;
 	padding: 10px 20px;
-	width: 40%;
 }
 .sajtim_link>a {
 	text-decoration: none;
+}
+
+/* для portrait */
+@media (orientation: portrait) {
+	
+	.announce {
+		left: 0;
+		width: 88%;
+	}
+	h1 {
+		font-size: 1.5rem;
+	}
+	.sajtim_link {
+		
+	}
+
 }
 
 
