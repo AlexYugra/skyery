@@ -57,33 +57,33 @@ function skyery() {
     var bit_anim = ['bits', 'bits_contr', 'bits_static'],
         svg_items = [{
                 viewbox: '0 0 50 50',
-                xlink: '/bits/conterspiral.svg#conterspiral',
+                xlink: './bits/conterspiral.svg#conterspiral',
                 stroke: 'AliceBlue'
             },
             {
                 viewbox: '0 0 400 400',
-                xlink: '/bits/ninestar.svg#ninestar',
+                xlink: './bits/ninestar.svg#ninestar',
                 stroke: 'AliceBlue'
             },
             {
                 viewbox: '0 0 500 500',
-                xlink: '/bits/octastar.svg#octastar',
+                xlink: './bits/octastar.svg#octastar',
                 fill: 'AliceBlue'
 
             },
             {
                 viewbox: '0 0 24 24',
-                xlink: '/bits/spiral.svg#spiral',
+                xlink: './bits/spiral.svg#spiral',
                 stroke: 'AliceBlue'
             },
             {
                 viewbox: '0 0 340 340',
-                xlink: '/bits/star.svg#star',
+                xlink: './bits/star.svg#star',
                 fill: 'AliceBlue'
             },
             {
                 viewbox: '0 0 639 600',
-                xlink: '/bits/triskele.svg#triskele',
+                xlink: './bits/triskele.svg#triskele',
                 fill: 'AliceBlue'
             }
         ];
@@ -136,7 +136,7 @@ function skyery() {
         var randomPosHorizont = randomInteger(min, max),
             randomPosVertical = randomInteger(min, max);
         var octastar = Star(octaStarSize);
-        octastar.load("/bits/octastar.svg#octastar");
+        octastar.load("./bits/octastar.svg#octastar");
         octastar.css({ "left": randomPosHorizont + "%", "top": randomPosVertical + "%", "fill": "gold" });
         octastar.prependTo($('.parallax'));
     }
@@ -146,7 +146,7 @@ function skyery() {
             randomPosHorizont = randomInteger(min / 3, max),
             randomPosVertical = randomInteger(min * 2, max);
         var circlestar = Star(circleStarSize);
-        circlestar.load("/bits/octastar.svg#octastar");
+        circlestar.load("./bits/octastar.svg#octastar");
         circlestar.css({ "left": randomPosHorizont + "%", "top": randomPosVertical + "%", "fill": "#F5FFFA" });
         circlestar.prependTo($('.parallax'));
     }
